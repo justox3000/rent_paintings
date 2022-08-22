@@ -1,5 +1,6 @@
 class Booking < ApplicationRecord
-  belongs_to :user_id
-  belongs_to :painting_id
-  belongs_to :review_id
+  belongs_to :user
+  belongs_to :painting
+  belongs_to :review
+  belongs_to :user, through: :painting
 end

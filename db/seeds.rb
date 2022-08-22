@@ -11,7 +11,5 @@ painting1 = Painting.new(
   year: rand(1765..2022),
   price: rand(10..666)
 )
-p painting1
 painting1.user_id = user1.id
-p painting1.valid?
 painting1.save!
