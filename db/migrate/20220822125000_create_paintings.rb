@@ -5,7 +5,7 @@ class CreatePaintings < ActiveRecord::Migration[7.0]
       t.string :artist_name
       t.integer :year
       t.float :price
-      t.references :user_id, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
