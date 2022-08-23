@@ -1,0 +1,12 @@
+<h1> Paintings </h1>
+<br>
+<br>
+<% @paintings.each do |painting| %>
+  <h3><%= painting.name %></h3>
+  <%= cl_image_tag painting.photo.key, height: 300, width: 400, crop: :fit  %>
+  <ul>
+    <li><strong>Artist: </strong><%= painting.artist_name %></li>
+    <li><strong>Year: </strong><%= painting.year %></li>
+    <li><strong>Price: </strong><%= painting.price %></li>
+  </ul>
+<% end %>
