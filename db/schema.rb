@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_22_125555) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_23_091535) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,9 +19,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_22_125555) do
     t.datetime "enddate"
     t.bigint "user_id", null: false
     t.bigint "painting_id", null: false
+    t.bigint "review_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["painting_id"], name: "index_bookings_on_painting_id"
+    t.index ["review_id"], name: "index_bookings_on_review_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -37,12 +39,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_22_125555) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.text "content"
+    t.string "content"
     t.integer "rating"
-    t.bigint "booking_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_22_125555) do
   end
 
   add_foreign_key "bookings", "paintings"
+  add_foreign_key "bookings", "reviews"
   add_foreign_key "bookings", "users"
   add_foreign_key "paintings", "users"
-  add_foreign_key "reviews", "bookings"
 end
