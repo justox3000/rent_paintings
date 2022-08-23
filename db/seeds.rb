@@ -1,3 +1,11 @@
+require "open-uri"
+
+file1 = URI.open("https://upload.wikimedia.org/wikipedia/commons/3/3e/A_Starry_night_dream_t.m_80_x_60_anno_2019.jpg")
+file2 = URI.open("https://upload.wikimedia.org/wikipedia/commons/9/9d/%22Village%22_-_NARA_-_558821.jpg")
+file3 = URI.open("https://upload.wikimedia.org/wikipedia/commons/8/8b/1990_%D0%9B%D0%B0%D0%B4%D1%8C%D1%8F_%D0%A5%D0%B0%D1%80%D0%BE%D0%BD%D0%B0.jpg")
+file4 = URI.open("https://upload.wikimedia.org/wikipedia/commons/f/ff/2_Iris_Hopp_Orca_Sun_Moon_Whale_Dolphin.png")
+file5 = URI.open("https://upload.wikimedia.org/wikipedia/commons/9/95/Age_of_Sail.jpg")
+
 puts "Delete old Seeds"
 
 Booking.destroy_all
@@ -19,6 +27,10 @@ painting1 = Painting.new(
   price: rand(10..666)
 )
 painting1.user = user1
+
+# Add photo to painting:
+
+painting1.photo.attach(io: file1, filename: "p1.png", content_type: "image/png")
 painting1.save!
 
 user2 = User.new(
@@ -33,6 +45,11 @@ painting2 = Painting.new(
   price: rand(10..666)
 )
 painting2.user = user2
+
+#  Add photo to painting:
+
+painting2.photo.attach(io: file2, filename: "p2.png", content_type: "image/png")
+
 painting2.save!
 
 user3 = User.new(
@@ -47,6 +64,11 @@ painting3 = Painting.new(
   price: rand(10..666)
 )
 painting3.user = user3
+
+#  Add photo to painting:
+
+painting3.photo.attach(io: file3, filename: "p3.png", content_type: "image/png")
+
 painting3.save!
 
 user4 = User.new(
@@ -61,6 +83,11 @@ painting4 = Painting.new(
   price: rand(10..666)
 )
 painting4.user = user4
+
+#  Add photo to painting:
+
+painting4.photo.attach(io: file4, filename: "p4.png", content_type: "image/png")
+
 painting4.save!
 
 user5 = User.new(
@@ -75,6 +102,11 @@ painting5 = Painting.new(
   price: rand(10..666)
 )
 painting5.user = user5
+
+#  Add photo to painting:
+
+painting5.photo.attach(io: file5, filename: "p5.png", content_type: "image/png")
+
 painting5.save!
 
 puts "Create 3 bookings and reviews..."
