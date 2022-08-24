@@ -1,0 +1,19 @@
+<h1> Paintings </h1>
+<br>
+<br>
+<% @paintings.each do |painting| %>
+  <div class="card-product" data-controller="card">
+  <%= cl_image_tag painting.photo.key, height: 300, width: 400, crop: :fit %>
+    <div class="card-product-infos">
+      <h2><%= link_to painting.name, painting_path(painting) %></h2>
+      <p><strong>Artist: </strong><%= painting.artist_name %></p>
+      <p><strong>Year: </strong><%= painting.year %></p>
+      <p><strong>Price: </strong><%= painting.price %></p>
+    </div>
+  </div>
+<% end %>
+<div class="row justify-content-end">
+  <div class="col-4">
+    <%= link_to "Add painting", new_painting_path, class: "btn btn-flat", id: "add-painting"%>
+  </div>
+</div>
