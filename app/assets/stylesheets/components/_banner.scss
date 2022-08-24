@@ -2,9 +2,9 @@
   background: linear-gradient(90deg,#272727,#5b5b5b);
   background-size: auto;
   background-position: center;
-  padding: 80px 0;
+  padding: 10px 0;
   text-align: center;
-  height: 350px;
+  height: 200px;
   justify-content: center;
   margin-top: 0;
 
@@ -30,15 +30,15 @@
 
   .btn {
     position: absolute;
-    top: 4px;
-    bottom: 4px;
-    right: 200px;
+    top: 0px;
+    bottom: 0px;
+    right: 20px;
   }
 }
 
 
 .search-form-control .form-control {
-  height: 45px;
+  height: 40px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   border: 1px solid #E7E7E7;
 }

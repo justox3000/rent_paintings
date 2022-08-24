@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RentPaintings</title>
+    <title>RentPainting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,12 +10,12 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
   </head>
-
   <body>
-<div class="navbar navbar-expand-sm navbar-light navbar-painting">
+  <%# <%= render "shared/navbar" %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-painting">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <%= image_tag "logo.png" %>
+      <%= image_tag "logo.png", class: "logoimg" %>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -24,11 +24,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <%= link_to "Home", root_path,class: "nav-link" %>
           </li>
-          <li class="nav-item signin">
-            <a class="nav-link" href="#">Sign Up</a>
+          <li class="nav-item signup">
+            <%= link_to "Sign Up", new_user_session_path,class: "nav-link" %>
           </li>
+          <li class="nav-item login">
+            <%= link_to "Log In", new_user_registration_path,class: "nav-link" %>
+          </li>
+          <li class="nav-item addpainting">
+            <%= link_to "Upload Painting", new_painting_path,class: "nav-link" %>
+            </li>
           <li class="nav-item contact">
             <a class="nav-link" href="#">Contact Us</a>
           </li>
@@ -43,8 +49,6 @@
     </div>
   </div>
 </div>
-<%# <div class="footer">
-</div> %>
   <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
     <% if notice %>
