@@ -13,4 +13,8 @@ class Painting < ApplicationRecord
     using: {
       tsearch: { prefix: true }
   }
+
+  def owner
+    user
+  end
 end
