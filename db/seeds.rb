@@ -134,7 +134,7 @@ booking1 = Booking.new(
 )
 booking1.review = review1
 booking1.painting = painting1
-booking1.renter = user1
+booking1.renter = user5
 booking1.save!
 
 review2 = Review.new(
@@ -149,7 +149,7 @@ booking2 = Booking.new(
 )
 booking2.review = review2
 booking2.painting = painting2
-booking2.renter = user2
+booking2.renter = user4
 booking2.save!
 
 review3 = Review.new(
@@ -164,7 +164,7 @@ booking3 = Booking.new(
 )
 booking3.review = review3
 booking3.painting = painting3
-booking3.renter = user3
+booking3.renter = user1
 booking3.save!
 
 booking4 = Booking.new(
@@ -172,7 +172,7 @@ booking4 = Booking.new(
   enddate: Faker::Date.forward(days: 5)
 )
 booking4.painting = painting3
-booking4.renter = user3
+booking4.renter = user2
 booking4.save!
 
 booking4 = Booking.new(
@@ -180,7 +180,7 @@ booking4 = Booking.new(
   enddate: Faker::Date.forward(days: 5)
 )
 booking4.painting = painting3
-booking4.renter = user3
+booking4.renter = user1
 booking4.save!
 
 booking5 = Booking.new(
@@ -188,7 +188,7 @@ booking5 = Booking.new(
   enddate: Faker::Date.forward(days: 5)
 )
 booking5.painting = painting3
-booking5.renter = user3
+booking5.renter = user5
 booking5.save!
 
 puts "Finished"
