@@ -1,5 +1,6 @@
 class PaintingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @paintings = Painting.all
   end
@@ -20,6 +21,11 @@ class PaintingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @painting.destroy(painting_params)
+    redirect_to_painting_path(@painting)
   end
 
   private
