@@ -10,7 +10,12 @@
         <li> <strong>Year: </strong><%=  @painting.year %> </li>
         <li> <strong>Price: </strong><%=  @painting.price %> € </li>
       </ul>
-        <div class="col">
+      <%= simple_form_for([@painting, @booking]) do |f| %>
+        <%= f.input :startdate %>
+        <%= f.input :enddate %>
+        <%= f.submit %>
+      <% end %>
+        <%# <div class="col">
           <%= link_to "Book now", "#", class: "btn btn-flat" %>
         </div>
         <div class="row justify-content-end">

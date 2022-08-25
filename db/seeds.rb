@@ -5,6 +5,7 @@ file2 = URI.open("https://upload.wikimedia.org/wikipedia/commons/9/9d/%22Village
 file3 = URI.open("https://upload.wikimedia.org/wikipedia/commons/8/8b/1990_%D0%9B%D0%B0%D0%B4%D1%8C%D1%8F_%D0%A5%D0%B0%D1%80%D0%BE%D0%BD%D0%B0.jpg")
 file4 = URI.open("https://upload.wikimedia.org/wikipedia/commons/f/ff/2_Iris_Hopp_Orca_Sun_Moon_Whale_Dolphin.png")
 file5 = URI.open("https://upload.wikimedia.org/wikipedia/commons/9/95/Age_of_Sail.jpg")
+# file6 = URI.open("https://news.artnet.com/app/news-upload/2015/08/cats-galore04-e1440608914811.jpg")
 
 puts "Delete old Seeds"
 
@@ -123,7 +124,7 @@ booking1 = Booking.new(
 )
 booking1.review = review1
 booking1.painting = painting1
-booking1.user = user1
+booking1.renter = user1
 booking1.save!
 
 review2 = Review.new(
@@ -138,7 +139,7 @@ booking2 = Booking.new(
 )
 booking2.review = review2
 booking2.painting = painting2
-booking2.user = user2
+booking2.renter = user2
 booking2.save!
 
 review3 = Review.new(
@@ -153,7 +154,7 @@ booking3 = Booking.new(
 )
 booking3.review = review3
 booking3.painting = painting3
-booking3.user = user3
+booking3.renter = user3
 booking3.save!
 
 puts "Finished!"
