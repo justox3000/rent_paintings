@@ -10,7 +10,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
   <%# <%= render "shared/navbar" %>
   <div class="navbar navbar-expand-sm navbar-light navbar-painting">
   <div class="container-fluid">
@@ -26,16 +26,12 @@
           <li class="nav-item active">
             <%= link_to "Home", root_path,class: "nav-link" %>
           </li>
-          <li class="nav-item signup">
-            <%= link_to "Sign Up", new_user_registration_path,class: "nav-link" %>
-          </li>
           <li class="nav-item login">
             <%= link_to "Log In", new_user_session_path,class: "nav-link" %>
           </li>
-          <li class="nav-item logout">
-            <%= button_to "Log Out", destroy_user_session_path,method: :delete,class: "nav-link" %>
+          <li class="nav-item signup">
+            <%= link_to "Dashboard", new_user_registration_path,class: "nav-link" %>
           </li>
-
           <li class="nav-item addpainting">
             <%= link_to "Upload Painting", new_painting_path,class: "nav-link" %>
             </li>
@@ -53,6 +49,7 @@
     </div>
   </div>
 </div>
+
   <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
     <% if notice %>
@@ -61,6 +58,15 @@
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
+    <div class="flex-grow-1">
     <%= yield %>
+    </div>
+    <div class="footer">
+      <p>Follow Us <i class="fa-solid fa-heart"></i></p>
+      <a href="#"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></i></a>
+      <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+      <a href="#"><i class="fa-brands fa-square-github"></i></a>
+    </div>
   </body>
 </html>
