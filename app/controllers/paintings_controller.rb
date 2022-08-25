@@ -11,6 +11,9 @@ class PaintingsController < ApplicationController
   def show
     @painting = Painting.find(params[:id])
     @booking = Booking.new
+    @previous_booking = current_user.bookings_as_renter.map(&:painting).include?(@painting)
+    @review = Review.new
+    # @reviews = Review.all.map(&:painting)
   end
 
   def new
