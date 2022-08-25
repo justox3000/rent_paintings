@@ -18,7 +18,7 @@
 <br>
 <h4> As owner: </h4>
 <div class="cards">
-<%=  @bookings_owner.each do |booking| %>
+<%  @bookings_owner.each do |booking| %>
 <div class="card-product" data-controller="card">
   <%= cl_image_tag booking.painting.photo.key, height: 300, width: 400, crop: :fit %>
   <div class="card-product-infos">
@@ -32,7 +32,7 @@
 </div>
 <h4> As lender: </h4>
 <div class="cards">
-<%=  @bookings_renter.each do |booking| %>
+<%  @bookings_renter.each do |booking| %>
 <div class="card-product" data-controller="card">
   <%= cl_image_tag booking.painting.photo.key, height: 300, width: 400, crop: :fit %>
   <div class="card-product-infos">
