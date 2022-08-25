@@ -1,23 +1,21 @@
 <div class= "banner">
   <div class="container">
-      <h1>Rent Paintings</h1>
-      <p>Rent your favorite painting anytime.</p>
-    </div>
-    <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get">
-      <div class="search-form-control form-group">
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Search with keyword"/>
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search"></i> Search
-        </button>
-      </div>
-    </form>
-    </div>
+    <h1>Rent Paintings</h1>
+    <p>Rent your favorite painting anytime.</p>
+  </div>
+  <div class="search-form-control form-group">
+    <%= form_with url: root_path, method: :get, class: "simple_form search" do |f| %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a painting"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
 <div class="cardcontainer">
-  <h1> Paintings </h1>
-  <br>
-  <br>
+  <h1>Explore...</h1>
   <div class="cards">
     <% @paintings.each do |painting| %>
       <div class="card-product" data-controller="card">
@@ -30,6 +28,7 @@
         </div>
       </div>
     <% end %>
+    </div>
   </div>
   <div class="row justify-content-end">
       <%= link_to "Add painting", new_painting_path, class: "btn btn-flat", id: "add-painting" %>
@@ -43,3 +42,8 @@
       <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
       <a href="#"><i class="fa-brands fa-square-github"></i></a>
 </div>
+  <div class="form-row text-center">
+    <div class="col-12">
+      <%= link_to "Add painting", new_painting_path, class: "btn btn-flat mb-3", id: "add-painting"%>
+    </div>
+  </div>

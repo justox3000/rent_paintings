@@ -5,7 +5,7 @@ file2 = URI.open("https://upload.wikimedia.org/wikipedia/commons/9/9d/%22Village
 file3 = URI.open("https://upload.wikimedia.org/wikipedia/commons/8/8b/1990_%D0%9B%D0%B0%D0%B4%D1%8C%D1%8F_%D0%A5%D0%B0%D1%80%D0%BE%D0%BD%D0%B0.jpg")
 file4 = URI.open("https://upload.wikimedia.org/wikipedia/commons/f/ff/2_Iris_Hopp_Orca_Sun_Moon_Whale_Dolphin.png")
 file5 = URI.open("https://upload.wikimedia.org/wikipedia/commons/9/95/Age_of_Sail.jpg")
-
+file6 = URI.open("https://upload.wikimedia.org/wikipedia/commons/8/83/The_art_of_painting_in_the_nineteenth_century_%281908%29_%2814783468075%29.jpg")
 puts "Delete old Seeds"
 
 Booking.destroy_all
@@ -16,7 +16,8 @@ User.destroy_all
 puts "Creating 5 random paintings and users"
 
 user1 = User.new(
-  Faker::Internet.user('username', 'email', 'password')
+  email: "test@test.com",
+  password: "testtest"
 )
 user1.save!
 
@@ -28,10 +29,20 @@ painting1 = Painting.new(
 )
 painting1.user = user1
 
-# Add photo to painting:
-
 painting1.photo.attach(io: file1, filename: "p1.png", content_type: "image/png")
 painting1.save!
+
+painting1a = Painting.new(
+  name: Faker::TvShows::RuPaul.quote,
+  artist_name: Faker::Artist.name,
+  year: rand(1765..2022),
+  price: rand(10..666)
+)
+painting1a.user = user1
+# Add photo to painting:
+
+painting1a.photo.attach(io: file6, filename: "p1.png", content_type: "image/png")
+painting1a.save!
 
 user2 = User.new(
   Faker::Internet.user('username', 'email', 'password')
@@ -123,7 +134,7 @@ booking1 = Booking.new(
 )
 booking1.review = review1
 booking1.painting = painting1
-booking1.user = user1
+booking1.renter = user5
 booking1.save!
 
 review2 = Review.new(
@@ -138,7 +149,7 @@ booking2 = Booking.new(
 )
 booking2.review = review2
 booking2.painting = painting2
-booking2.user = user2
+booking2.renter = user4
 booking2.save!
 
 review3 = Review.new(
@@ -153,7 +164,31 @@ booking3 = Booking.new(
 )
 booking3.review = review3
 booking3.painting = painting3
-booking3.user = user3
+booking3.renter = user1
 booking3.save!
 
-puts "Finished!"
+booking4 = Booking.new(
+  startdate: Faker::Date.backward(days: 14),
+  enddate: Faker::Date.forward(days: 5)
+)
+booking4.painting = painting3
+booking4.renter = user2
+booking4.save!
+
+booking4 = Booking.new(
+  startdate: Faker::Date.backward(days: 14),
+  enddate: Faker::Date.forward(days: 5)
+)
+booking4.painting = painting3
+booking4.renter = user1
+booking4.save!
+
+booking5 = Booking.new(
+  startdate: Faker::Date.backward(days: 14),
+  enddate: Faker::Date.forward(days: 5)
+)
+booking5.painting = painting3
+booking5.renter = user5
+booking5.save!
+
+puts "Finished"

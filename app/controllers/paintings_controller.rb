@@ -2,11 +2,16 @@ class PaintingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @paintings = Painting.all
+    if params[:query].present?
+      @paintings = Painting.search_by_name_artist_and_year(params[:query])
+    else
+      @paintings = Painting.all
+    end
   end
 
   def show
     @painting = Painting.find(params[:id])
+    @booking = Booking.new
   end
 
   def new

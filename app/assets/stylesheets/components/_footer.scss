@@ -1,9 +1,13 @@
 .footer {
   background: linear-gradient(90deg,#5b5b5b,#272727);
   text-align: center;
-  padding: 35px;
+  padding: 5px;
   color: white;
-  height: 150px;
+  height: 90px;
+
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .fa-brands {

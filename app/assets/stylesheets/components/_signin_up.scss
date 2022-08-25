@@ -1,0 +1,30 @@
+#new_user {
+  border: 1px solid;
+  justify-content: center;
+  display: grid;
+  margin: 0 auto;
+  position: relative;
+  width: 30%;
+  padding-top: 18px;
+  padding-left: 50px;
+  padding-bottom: 18px;
+  border-radius: 5px;
+
+  .btn {
+    border: 1 solid;
+    border-color: rgba($color: #000000, $alpha: 0.4);
+    border-radius: 6px;
+    justify-content: center;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+.form-actions {
+  border-color: rgba($color: #000000, $alpha: 0.6);
+}
+
+.form-control {
+  margin-left: 10px;
+}

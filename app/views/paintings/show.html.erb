@@ -18,6 +18,12 @@
           <%= link_to "Edit", edit_painting_path, class: "btn btn-flat" %>
         </div>
         <div class="col ml-3">
+      <%= simple_form_for([@painting, @booking]) do |f| %>
+        <%= f.input :startdate %>
+        <%= f.input :enddate %>
+        <%= f.submit %>
+      <% end %>
+        <%# <div class="col">
           <%= link_to "Book now", "#", class: "btn btn-flat" %>
         </div>
 
