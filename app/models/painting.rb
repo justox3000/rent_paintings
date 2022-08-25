@@ -6,4 +6,11 @@ class Painting < ApplicationRecord
   validates :name, :artist_name, :year, :price, presence: true
   validates :year, numericality: { greater_than_or_equal_to: 0 }
   validates :price, numericality: { greater_than_or_equal_to: 0 }
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_artist_and_year,
+    against: [ :name, :artist_name, :year ],
+    using: {
+      tsearch: { prefix: true }
+  }
 end
