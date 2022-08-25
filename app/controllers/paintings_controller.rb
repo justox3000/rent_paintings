@@ -13,6 +13,11 @@ class PaintingsController < ApplicationController
     @painting = Painting.new
   end
 
+  def edit
+    @user = current_user
+    @painting = Painting.find(params[:id])
+  end
+
   def create
     @painting = Painting.new(painting_params)
     @painting.user = current_user
@@ -24,8 +29,18 @@ class PaintingsController < ApplicationController
   end
 
   def destroy
-    @painting.destroy(painting_params)
-    redirect_to_painting_path(@painting)
+    @painting = Painting.find(params[:id])
+    @painting.destroy
+    redirect_to root_path, status: :see_other
+  end
+
+  def update
+    @painting = Painting.find(params[:id])
+    if @painting.update!(painting_params)
+      redirect_to painting_path(@painting)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
