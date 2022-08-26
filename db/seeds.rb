@@ -6,6 +6,9 @@ file3 = URI.open("https://upload.wikimedia.org/wikipedia/commons/8/8b/1990_%D0%9
 file4 = URI.open("https://upload.wikimedia.org/wikipedia/commons/f/ff/2_Iris_Hopp_Orca_Sun_Moon_Whale_Dolphin.png")
 file5 = URI.open("https://upload.wikimedia.org/wikipedia/commons/9/95/Age_of_Sail.jpg")
 file6 = URI.open("https://upload.wikimedia.org/wikipedia/commons/8/83/The_art_of_painting_in_the_nineteenth_century_%281908%29_%2814783468075%29.jpg")
+# file7 = URI.open("https://upload.wikimedia.org/wikipedia/commons/c/c9/A_Clydesdale_Stallion_%281820%29_painting_in_high_resolution_by_John_Frederick_Herring._Original_from_Yale_University_Art_Gallery._Digitally_enhanced_by_rawpixel._%2851927507631%29.jpg")
+# file8 = URI.open("https://upload.wikimedia.org/wikipedia/commons/9/96/A_Musician_%28ca._1867%29_painting_in_high_resolution_by_Albert_Joseph_Moore._Original_from_the_Yale_University_Art_Gallery._Digitally_enhanced_by_rawpixel._%2851926658247%29.jpg")
+
 puts "Delete old Seeds"
 
 Booking.destroy_all
@@ -41,7 +44,7 @@ painting1a = Painting.new(
 painting1a.user = user1
 # Add photo to painting:
 
-painting1a.photo.attach(io: file6, filename: "p1.png", content_type: "image/png")
+painting1a.photo.attach(io: file6, filename: "p1a.png", content_type: "image/png")
 painting1a.save!
 
 user2 = User.new(
@@ -74,7 +77,7 @@ painting3 = Painting.new(
   year: rand(1765..2022),
   price: rand(10..666)
 )
-painting3.user = user3
+painting3.user = user1
 
 #  Add photo to painting:
 
@@ -136,7 +139,7 @@ booking1 = Booking.new(
   enddate: Faker::Date.forward(days: 5)
 )
 booking1.painting = painting1
-booking1.renter = user5
+booking1.renter = user1
 booking1.save!
 
 review2 = Review.new(
@@ -151,7 +154,7 @@ booking2 = Booking.new(
   enddate: Faker::Date.forward(days: 5)
 )
 booking2.painting = painting2
-booking2.renter = user4
+booking2.renter = user1
 booking2.save!
 
 review3 = Review.new(
