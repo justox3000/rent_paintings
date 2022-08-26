@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "paintings#index"
-  get "pages/dashboard", to: "pages#dashboard"
+  get "pages/dashboard", to: "pages#dashboard", as: :dashboard
 
   resources :paintings, except: [:index] do
     resources :bookings, only: [:new, :create]
