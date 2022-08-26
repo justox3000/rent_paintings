@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
     @booking.painting = Painting.find(params[:painting_id])
     @booking.renter = current_user
     if @booking.save!
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render "paintings/show", painting: @booking.painting, status: :unprocessable_entity
     end
