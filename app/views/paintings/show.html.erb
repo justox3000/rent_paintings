@@ -6,23 +6,55 @@
     <div class="col-6">
       <h2> <%= @painting.name %> </h2>
       <ul>
-        <li> <strong>Artist: </strong><%=  @painting.artist_name %> </li>
-        <li> <strong>Year: </strong><%=  @painting.year %> </li>
-        <li> <strong>Price: </strong><%=  @painting.price %> € </li>
+        <li> <strong>Artist: </strong><%= @painting.artist_name %> </li>
+        <li> <strong>Year: </strong><%= @painting.year %> </li>
+        <li> <strong>Price: </strong><%= @painting.price %> € </li>
       </ul>
+      <div class="row justify-content-centre">
+        <div class="col ml-3">
+          <%= link_to "Delete", painting_path(@painting), data: { turbo_method: :delete, turbo_confirm: "Delete #{@painting.name}?" }, class: "btn btn-flat" %>
+        </div>
+        <div class="col">
+          <%= link_to "Edit", edit_painting_path, class: "btn btn-flat" %>
+        </div>
+        <div class="col ml-3">
       <%= simple_form_for([@painting, @booking]) do |f| %>
         <%= f.input :startdate %>
         <%= f.input :enddate %>
         <%= f.submit %>
       <% end %>
+
         <%# <div class="col">
           <%= link_to "Book now", "#", class: "btn btn-flat" %>
         </div>
+
+
         <div class="row justify-content-end">
           <div class="col-2">
-            <%= link_to "Back", root_path, class: "btn btn-ghost", id: "btn-back"%>
+            <%= link_to "Back", root_path, class: "btn btn-ghost", id: "btn-back" %>
           </div>
+          
+      <div class="row justify-content-end">
+        <div class="col-2">
+          <%= link_to "Back", root_path, class: "btn btn-ghost", id: "btn-back"%>
         </div>
+      </div>
     </div>
   </div>
+  <hr>
+  <% if @previous_booking %>
+    <div class="form group row">
+      <div class="col">
+        <%# TODO: Notification to review.... %>
+        <div class="alert alert-warning" role="alert">
+          ⚠️ Please rate your recent booking!
+        </div>
+        <%= render "reviewform" %>
+      </div>
+    </div>
+  <% end %>
+  <% @painting.reviews.each do |review| %>
+    <p><strong>Rating: </strong><%= review.rating %></p>
+    <p><strong>Content: </strong><%= review.content %></p>
+  <% end %>
 </div>

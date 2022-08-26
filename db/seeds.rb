@@ -176,7 +176,6 @@ booking4.painting = painting3
 booking4.renter = user2
 booking4.save!
 
-
 booking5 = Booking.new(
   startdate: Faker::Date.backward(days: 14),
   enddate: Faker::Date.forward(days: 5)
