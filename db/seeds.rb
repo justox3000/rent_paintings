@@ -122,17 +122,19 @@ painting5.save!
 
 puts "Create 3 bookings and reviews..."
 
+puts "Create 3 bookings and reviews..."
+
 review1 = Review.new(
   content: Faker::Restaurant.review,
   rating: rand(0..5)
 )
+review1.painting = painting1
 review1.save!
 
 booking1 = Booking.new(
   startdate: Faker::Date.backward(days: 14),
   enddate: Faker::Date.forward(days: 5)
 )
-booking1.review = review1
 booking1.painting = painting1
 booking1.renter = user5
 booking1.save!
@@ -141,13 +143,13 @@ review2 = Review.new(
   content: Faker::Restaurant.review,
   rating: rand(0..5)
 )
+review2.painting = painting2
 review2.save!
 
 booking2 = Booking.new(
   startdate: Faker::Date.backward(days: 14),
   enddate: Faker::Date.forward(days: 5)
 )
-booking2.review = review2
 booking2.painting = painting2
 booking2.renter = user4
 booking2.save!
@@ -156,13 +158,13 @@ review3 = Review.new(
   content: Faker::Restaurant.review,
   rating: rand(0..5)
 )
+review3.painting = painting3
 review3.save!
 
 booking3 = Booking.new(
   startdate: Faker::Date.backward(days: 14),
   enddate: Faker::Date.forward(days: 5)
 )
-booking3.review = review3
 booking3.painting = painting3
 booking3.renter = user1
 booking3.save!
@@ -171,7 +173,6 @@ booking4 = Booking.new(
   startdate: Faker::Date.backward(days: 14),
   enddate: Faker::Date.forward(days: 5)
 )
-booking4.review = review3
 booking4.painting = painting3
 booking4.renter = user2
 booking4.save!
@@ -180,9 +181,12 @@ booking5 = Booking.new(
   startdate: Faker::Date.backward(days: 14),
   enddate: Faker::Date.forward(days: 5)
 )
-booking5.review = review3
 booking5.painting = painting3
 booking5.renter = user5
 booking5.save!
+
+puts "Finished"
+puts "Test-Email: test@test.com"
+puts "Password: testtest"
 
 puts "Finished"
