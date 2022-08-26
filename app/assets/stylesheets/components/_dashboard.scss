@@ -1,11 +1,17 @@
-.dashboard {
-  display: grid;
+.dashboard{
   margin-bottom: 30px;
+  margin-right: 30px;
+  margin-left: 30px;
   gap: 30px;
-  justify-content: center;
 
   .dash-h {
     text-align: center;
     color: #746e6e;
   }
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
 }
