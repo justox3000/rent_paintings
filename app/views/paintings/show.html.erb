@@ -1,7 +1,12 @@
 <div class="container" id="painting-info">
   <div class="row">
-    <div class="col-5">
+    <div class="col-5 d-flex flex-column">
       <%= cl_image_tag @painting.photo.key, width: 400, crop: :fit, class: "rounded" %>
+      <%= link_to "Edit", edit_painting_path, class: "btn btn-flat btn-show" %>
+      <%= link_to "Delete", painting_path(@painting), data: { turbo_method: :delete, turbo_confirm: "Delete #{@painting.name}?" }, class: "btn btn-flat btn-show" %>
+      <div class="col-2">
+        <%= link_to "Back", root_path, class: "btn btn-ghost", id: "btn-back" %>
+      </div>
     </div>
     <div class="col-6">
       <h2> <%= @painting.name %> </h2>
@@ -11,29 +16,13 @@
         <li> <strong>Price: </strong><%= @painting.price %> € </li>
       </ul>
       <div class="row">
-        <div class="col ml-3">
-          <%= simple_form_for([@painting, @booking]) do |f| %>
-          <%= f.input :startdate %>
-          <%= f.input :enddate %>
-          <%= f.submit %>
-          <% end %>
-        </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-end">
           <div class="col ml-3">
-            <%= link_to "Delete", painting_path(@painting), data: { turbo_method: :delete, turbo_confirm: "Delete #{@painting.name}?" }, class: "btn btn-flat" %>
-          </div>
-          <div class="col">
-            <%= link_to "Edit", edit_painting_path, class: "btn btn-flat" %>
-          </div>
-          <div class="row justify-content-end">
-            <div class="col-2">
-              <%= link_to "Back", root_path, class: "btn btn-ghost", id: "btn-back" %>
-            </div>
-            <div class="row justify-content-end">
-              <div class="col-2">
-                <%= link_to "Back", root_path, class: "btn btn-ghost", id: "btn-back"%>
-              </div>
-            </div>
+            <%= simple_form_for([@painting, @booking]) do |f| %>
+            <%= f.input :startdate %>
+            <%= f.input :enddate %>
+            <%= f.submit %>
+            <% end %>
           </div>
         </div>
       </div>
