@@ -1,46 +1,74 @@
-<h1> Your Dashboard </h1>
-<br>
-<h2> Your Paintings </h2>
-<div class="cards">
-    <% @paintings.each do |painting| %>
-      <div class="card-product" data-controller="card">
-      <%= cl_image_tag painting.photo.key, height: 300, width: 400, crop: :fit %>
-        <div class="card-product-infos">
-          <h2><%= link_to painting.name, painting_path(painting) %></h2>
-          <p><strong>Artist: </strong><%= painting.artist_name %></p>
-          <p><strong>Year: </strong><%= painting.year %></p>
-          <p><strong>Price: </strong><%= painting.price %></p>
-        </div>
-      </div>
+<div class="dashboard">
+  <nav>
+    <ul id="main">
+      <li class="nav-bar-dashboard">
+            <%= link_to "Sign In", new_user_registration_path,class: "nav-link" %>
+          </li>
+      <li class="nav-bar-dashboard">
+            <%= link_to "Log In", new_user_session_path,class: "nav-link" %>
+          </li>
+      <li class="nav-bar-dashboard">
+            <%= button_to "LOG OUT", destroy_user_session_path,method: :delete,class: "nav-link" %>
+          </li>
+      <li class="nav-bar-dashboard">
+            <%= link_to "Edit", new_user_registration_path,class: "nav-link" %>
+          </li>
+      <li class="nav-bar-dashboard">
+            <%= link_to "Delete", new_user_registration_path,class: "nav-link" %>
+          </li>
+      <div id="marker"></div>
+    </ul>
+  </nav>
+  <div class="dashboard-all">
+    <h2 class="dash-h"> Your Painting Lists </h2>
+    <div class="cards w-100 mx-auto d-flex justify-content-center">
+        <% @paintings.each do |painting| %>
+          <div class="card-product" data-controller="card">
+          <%= cl_image_tag painting.photo.key, height: 300, width: 400, crop: :fit %>
+            <div class="card-product-infos">
+              <h2><%= link_to painting.name, painting_path(painting) %></h2>
+              <p><strong>Artist: </strong><%= painting.artist_name %></p>
+              <p><strong>Year: </strong><%= painting.year %></p>
+              <p><strong>Price: </strong><%= painting.price %></p>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
+  <div class="dashboard-owner">
+    <h3 class="dash-h"> Your Bookings </h3>
+    <br>
+    <h4 class="dash-h"> As owner </h4>
+    <div class="cards w-100 mx-auto d-flex justify-content-center">
+    <%  @bookings_owner.each do |booking| %>
+    <div class="card-product" data-controller="card">
+      <%= cl_image_tag booking.painting.photo.key, height: 300, width: 400, crop: :fit %>
+      <div class="card-product-infos">
+      <h2><%= link_to booking.painting.name, painting_path(booking.painting) %></h2>
+      <p><strong>Startdate: </strong><%= booking.startdate %></p>
+      <p><strong>Enddate: </strong><%= booking.enddate %></p>
+      <p><strong>Price/Week: </strong><%= booking.painting.price %></p>
+    </div>
+    </div>
     <% end %>
+    </div>
+  </div>
+  <div class="dashboard-lender">
+    <h4 class="dash-h"> As lender </h4>
+    <div class="cards w-100 mx-auto d-flex justify-content-center">
+    <%  @bookings_renter.each do |booking| %>
+    <div class="card-product" data-controller="card">
+      <%= cl_image_tag booking.painting.photo.key, height: 300, width: 400, crop: :fit %>
+      <div class="card-product-infos">
+      <h2><%= link_to booking.painting.name, painting_path(booking.painting) %></h2>
+      <p><strong>Startdate: </strong><%= booking.startdate %></p>
+      <p><strong>Enddate: </strong><%= booking.enddate %></p>
+      <p><strong>Price/Week: </strong><%= booking.painting.price %></p>
+    </div>
+    </div>
+    <% end %>
+    </div>
+  </div>
 </div>
-<h3> Your Bookings: </h3>
-<br>
-<h4> As owner: </h4>
-<div class="cards">
-<%  @bookings_owner.each do |booking| %>
-<div class="card-product" data-controller="card">
-  <%= cl_image_tag booking.painting.photo.key, height: 300, width: 400, crop: :fit %>
-  <div class="card-product-infos">
-  <h2><%= link_to booking.painting.name, painting_path(booking.painting) %></h2>
-  <p><strong>Startdate: </strong><%= booking.startdate %></p>
-  <p><strong>Enddate: </strong><%= booking.enddate %></p>
-  <p><strong>Price/Week: </strong><%= booking.painting.price %></p>
-</div>
-</div>
-<% end %>
-</div>
-<h4> As lender: </h4>
-<div class="cards">
-<%  @bookings_renter.each do |booking| %>
-<div class="card-product" data-controller="card">
-  <%= cl_image_tag booking.painting.photo.key, height: 300, width: 400, crop: :fit %>
-  <div class="card-product-infos">
-  <h2><%= link_to booking.painting.name, painting_path(booking.painting) %></h2>
-  <p><strong>Startdate: </strong><%= booking.startdate %></p>
-  <p><strong>Enddate: </strong><%= booking.enddate %></p>
-  <p><strong>Price/Week: </strong><%= booking.painting.price %></p>
-</div>
-</div>
-<% end %>
-</div>
+
+<%# test %>
