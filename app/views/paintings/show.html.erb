@@ -24,9 +24,9 @@
   </div>
   <hr>
   <% if @previous_booking %>
-    <div class="row">
-    <%# TODO: Notification to review.... %>
+    <div class="form group row">
       <div class="col">
+        <%# TODO: Notification to review.... %>
         <div class="alert alert-warning" role="alert">
           ⚠️ Please rate your recent booking!
         </div>
@@ -34,7 +34,7 @@
       </div>
     </div>
   <% end %>
-  <% @reviews.each do |review| %>
+  <% @painting.reviews.each do |review| %>
     <p><strong>Rating: </strong><%= review.rating %></p>
     <p><strong>Content: </strong><%= review.content %></p>
   <% end %>
