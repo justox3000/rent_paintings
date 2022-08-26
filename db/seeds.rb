@@ -186,3 +186,5 @@ booking5.renter = user5
 booking5.save!
 
 puts "Finished"
+puts "Test-Email: test@test.com"
+puts "Password: testtest"
