@@ -1,0 +1,11 @@
+.dashboard {
+  display: grid;
+  margin-bottom: 30px;
+  gap: 30px;
+  justify-content: center;
+
+  .dash-h {
+    text-align: center;
+    color: #746e6e;
+  }
+}
