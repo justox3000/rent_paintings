@@ -10,7 +10,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
   </head>
-  <body class="d-flex flex-column min-vh-100">
+  <body>
   <%# <%= render "shared/navbar" %>
   <div class="navbar navbar-expand-sm navbar-light navbar-painting">
   <div class="container-fluid">
@@ -58,9 +58,9 @@
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
-    <div class="flex-grow-1">
+    <%# <div class="flex-grow-1"> %>
     <%= yield %>
-    </div>
+    <%# </div> %>
     <div class="footer">
       <p>Follow Us <i class="fa-solid fa-heart"></i></p>
       <a href="#"><i class="fa-brands fa-facebook"></i></a>
