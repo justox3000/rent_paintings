@@ -5,9 +5,7 @@ Rails.application.routes.draw do
   root "paintings#index"
   get "pages/dashboard", to: "pages#dashboard"
 
-  resources :paintings, only: [:new, :show, :create, :edit, :destroy, :update] do
-  resources :paintings, only: [:new, :show, :create, :destroy] do
-
+  resources :paintings, except: [:index] do
     resources :bookings, only: [:new, :create]
     resources :reviews, only: [:create, :index]
   end
