@@ -167,23 +167,21 @@ booking3.painting = painting3
 booking3.renter = user1
 booking3.save!
 
-# booking4 = Booking.new(
-#   startdate: Faker::Date.backward(days: 14),
-#   enddate: Faker::Date.forward(days: 5)
-# )
-# booking4.review = review3
-# booking4.painting = painting3
-# booking4.renter = user2
-# booking4.save!
+booking4 = Booking.new(
+  startdate: Faker::Date.backward(days: 14),
+  enddate: Faker::Date.forward(days: 5)
+)
+booking4.painting = painting3
+booking4.renter = user2
+booking4.save!
 
-# booking5 = Booking.new(
-#   startdate: Faker::Date.backward(days: 14),
-#   enddate: Faker::Date.forward(days: 5)
-# )
-# booking5.review = review3
-# booking5.painting = painting3
-# booking5.renter = user5
-# booking5.save!
+booking5 = Booking.new(
+  startdate: Faker::Date.backward(days: 14),
+  enddate: Faker::Date.forward(days: 5)
+)
+booking5.painting = painting3
+booking5.renter = user5
+booking5.save!
 
 puts "Finished"
 puts "Test-Email: test@test.com"
